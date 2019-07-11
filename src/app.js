@@ -31,8 +31,23 @@ app.get('/help', (req, res) =>{
 }); 
 
 app.get('/weather', (req, res) =>{
-    res.render('weather', { title: 'Forecast', content: 'get help here', name: 'beagler' })
+    if(req.query.address){
+        return res.send({ forecast: 'something', location: 'somewhere', address: req.query.address })
+    }
+    return res.send({
+        error: 'address is required'
+    }) 
 }); 
+
+app.get('/products', (req, res) =>{
+    console.log(req.query)
+    if(!req.query.search){
+        return res.send({
+            error: 'search term required'
+        })
+    }
+    res.send({products: []})
+})
 
 app.get('/help/*', (req,res) =>{
     res.render('404', {title: "help", errorMessage: 'article not found'})
