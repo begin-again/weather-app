@@ -1,16 +1,41 @@
+body {
+    color:#333;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    max-width: 650px;
+    margin: 0 auto;
+    padding: 0 16px;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+footer {
+    color: #888;
+    border-top: 1px solid #eee;
+    margin-top: 16px;
+    padding: 16px 0;
+}
+
+header {
+    margin-top: 16ox;
+    margin-bottom: 48px;
+}
+
 h1 {
-    color: darkblue
+    font-size: 64px;
+    margin-bottom: 16px;
 }
 
-img {
-    width: 250px
+nav a {
+    color: #888;
+    margin-right: 16px;
+    text-decoration: none;
 }
 
-p.footer {
-    margin-top: 6px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+.portrait {
+    width: 250px;
 }
 
-p.footer > span {
-    text-transform: capitalize;
+.main-content {
+    flex-grow: 1;
 }

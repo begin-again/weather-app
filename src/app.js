@@ -31,11 +31,16 @@ app.get('/help', (req, res) =>{
 }); 
 
 app.get('/weather', (req, res) =>{
-    res.send({
-        forcast: "some weather stuff"
-        , location: "someplace"
-    })
+    res.render('weather', { title: 'Forecast', content: 'get help here', name: 'beagler' })
 }); 
+
+app.get('/help/*', (req,res) =>{
+    res.render('404', {title: "help", errorMessage: 'article not found'})
+})
+
+app.get('*', (req,res) =>{
+    res.render('404', {title: "404", errorMessage: `Sorry that page does not exist: ${req.url}`})
+})
 
 app.listen(3000, () =>{
     console.info('server is on port 3000')
