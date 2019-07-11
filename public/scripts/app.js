@@ -1,0 +1,1 @@
+console.info('client side js file loaded')

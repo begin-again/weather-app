@@ -1,0 +1,16 @@
+h1 {
+    color: darkblue
+}
+
+img {
+    width: 250px
+}
+
+p.footer {
+    margin-top: 6px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif
+}
+
+p.footer > span {
+    text-transform: capitalize;
+}
