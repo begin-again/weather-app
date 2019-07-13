@@ -2,6 +2,9 @@ const express = require('express')
 const path = require('path')
 const hbs = require('hbs')
 
+const {geocode} = require('./utils/geocode')
+const {forecast} = require('./utils/weather')
+
 const app = express() 
 
 const pubPath = path.join(__dirname, "../public")
@@ -32,11 +35,21 @@ app.get('/help', (req, res) =>{
 
 app.get('/weather', (req, res) =>{
     if(req.query.address){
-        return res.send({ forecast: 'something', location: 'somewhere', address: req.query.address })
+        // return res.send({ forecast: 'something', location: 'somewhere', address: req.query.address })
+        return geocode(req.query.address, (err, { longitude, latitude, location} = {}) => {
+            if (err) return res.send({error: err})
+            // console.log('Data', data)
+            forecast(latitude, longitude, (err, forecastData) => {
+                if (err) return res.send({ error: err })
+                return res.send({
+                    forecast: forecastData,
+                    location: location,
+                    address: req.query.address
+                })
+            })
+        })
     }
-    return res.send({
-        error: 'address is required'
-    }) 
+    return res.send({error: 'address is required'}) 
 }); 
 
 app.get('/products', (req, res) =>{
