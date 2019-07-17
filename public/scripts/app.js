@@ -30,13 +30,13 @@ weatherForm.addEventListener('submit', (e) =>{
     return getWeather(location)    
         .then((data) =>{
             if(data.error) {
-                msg2.textContent = data.error
+                msg1.textContent = data.error
             } else {
                 msg1.textContent = data.location
                 msg2.textContent = data.forecast
             }
         })
         .catch(data =>{
-            msg2.textContent = data.error
+            msg1.textContent = data.error
         })
 })

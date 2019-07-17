@@ -2,7 +2,8 @@
 exports.forecast = getWeather
 
 const request = require('request')
-const env = require('../env.json')
+const weatherURL = process.env.WEATHER_URL || require('../env.json').weather.url
+const weatherKey = process.env.WEATHER_KEY || require('../env.json').weather.key
 
 const MESSAGES = {
   network: 'Unable to contact weather service',
@@ -10,7 +11,7 @@ const MESSAGES = {
 }
 function getWeather (latitude, longitude, cb) {
   const opts = {
-    url: `${env.weather.url}/forecast/${env.weather.key}/${latitude},${longitude}`,
+    url: `${weatherURL}/forecast/${weatherKey}/${latitude},${longitude}`,
     json: true,
     qs: {
       units: 'us'

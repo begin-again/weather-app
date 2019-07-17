@@ -2,7 +2,8 @@
 exports.geocode = getLocation
 
 const request = require('request')
-const env = require('../env.json')
+const geoURL = process.env.GEO_URL || require('../env.json').geo.url
+const geoKey = process.env.GEO_KEY || require('../env.json').geo.key
 
 const MESSAGES = {
   network: 'Unable to contact location services!',
@@ -11,10 +12,10 @@ const MESSAGES = {
 
 function getLocation (search, cb) {
   const opts = {
-    url: `${env.geo.url}/${search}.json`,
+    url: `${geoURL}/${search}.json`,
     json: true,
     qs: {
-      access_token: env.geo.key,
+      access_token: geoKey,
       limit: 1
     }
   }
