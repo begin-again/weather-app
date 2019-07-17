@@ -20,11 +20,8 @@ hbs.registerPartials(partialsPath)
 app.use(express.static(pubPath))
 
 app.get('', (req, res) =>{
-    res.render('index', { title: 'Main', name: 'beagler'})
+    res.render('index', { title: 'Weather', name: 'beagler'})
 })
-// app.get('/help', (req, res) =>{
-//     res.sendFile(path.join(pub,"help.html"))
-// }); 
 
 app.get('/about', (req, res) =>{
     res.render('about', {title: 'About', name: 'beagler'})
@@ -51,16 +48,6 @@ app.get('/weather', (req, res) =>{
     }
     return res.send({error: 'address is required'}) 
 }); 
-
-app.get('/products', (req, res) =>{
-    console.log(req.query)
-    if(!req.query.search){
-        return res.send({
-            error: 'search term required'
-        })
-    }
-    res.send({products: []})
-})
 
 app.get('/help/*', (req,res) =>{
     res.render('404', {title: "help", errorMessage: 'article not found'})
