@@ -1,7 +1,7 @@
 console.log('client app loaded')
 
 function getWeather(location){
-    return fetch(`http://localhost:3000/weather?address=${location}`)
+    return fetch(`/weather?address=${location}`)
     .then(resp =>{
         if(resp.ok) return resp.json()
         throw { error: 'Network response was not ok.'}

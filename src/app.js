@@ -6,6 +6,7 @@ const {geocode} = require('./utils/geocode')
 const {forecast} = require('./utils/weather')
 
 const app = express() 
+const port = process.env.PORT || 3000
 
 const pubPath = path.join(__dirname, "../public")
 const viewsPath = path.join(__dirname, "../templates/views")
@@ -57,6 +58,6 @@ app.get('*', (req,res) =>{
     res.render('404', {title: "404", errorMessage: `Sorry that page does not exist: ${req.url}`})
 })
 
-app.listen(3000, () =>{
-    console.info('server is on port 3000')
+app.listen(port, () =>{
+    console.info(`server is on port ${port}`)
 })
