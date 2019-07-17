@@ -24,8 +24,8 @@ function getLocation (search, cb) {
     } else if (response.body.features.length === 0) {
       cb(MESSAGES.location, undefined)
     } else {
-      const latitude = response.body.features[0].center[0]
-      const longitude = response.body.features[0].center[1]
+      const latitude = response.body.features[0].center[1]
+      const longitude = response.body.features[0].center[0]
       const location = response.body.features[0].place_name
       return cb(undefined, { latitude: latitude, longitude: longitude, location: location })
     }
