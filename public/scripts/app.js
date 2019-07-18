@@ -36,7 +36,7 @@ weatherForm.addEventListener('submit', (e) =>{
                 msg2.textContent = data.forecast
             }
         })
-        .catch(data =>{
+        .catch(data =>{ 
             msg1.textContent = data.error
         })
 })
