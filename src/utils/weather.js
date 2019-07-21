@@ -27,7 +27,7 @@ function getWeather (latitude, longitude, cb) {
       const today = response.body.daily.data[0]
       const precip = current.precipProbability * 100;
       const msg = `${today.summary} It is currently ${Math.round(current.temperature)}F degrees with a high expected of ${Math.round(today.temperatureHigh)}F. 
-      There is a ${precipProbability < 1 ? '<1' : Math.round(precipProbability)}% chance of precipitation.
+      There is a ${precip < 1 ? '<1' : Math.round(precip)}% chance of precipitation.
       `
       return cb(undefined, msg)
     }
