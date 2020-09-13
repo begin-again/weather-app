@@ -22,14 +22,14 @@ function getWeather (latitude, longitude, cb) {
       return cb(MESSAGES.location, undefined)
     } else {
       const current = response.body.currently
-      const today = response.body.daily.data[0]
-      const precip = Math.round(current.precipProbability * 100)
-      const alerts = response.body.alerts
-      const alert = alerts ? alerts[0].title : ''
+      const today = response.body.daily.data[0];
+	    const precip = Math.round(current.precipProbability * 100);
+      const alerts = response.body.alerts;
+      const alert = alerts ? alerts[0].title : ``;
       const msg = `${today.summary} It is currently ${current.summary} and ${Math.round(current.temperature)}F degrees with a high expected of ${Math.round(today.temperatureHigh)}F. 
       There is a ${precip}% chance of precipitation.
       `
-      return cb(undefined, { msg, alert })
+      return cb(undefined, {msg, alert})
     }
   })
 }
