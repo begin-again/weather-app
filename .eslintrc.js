@@ -5,7 +5,7 @@ module.exports = {
     es6: true
   },
   extends: [
-    'standard'
+    'recommended'
   ],
   globals: {
     Atomics: 'readonly',
@@ -13,7 +13,5 @@ module.exports = {
   },
   parserOptions: {
     ecmaVersion: 2018
-  },
-  rules: {
   }
 }
