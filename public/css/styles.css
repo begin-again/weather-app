@@ -40,6 +40,27 @@ nav a {
     flex-grow: 1;
 }
 
+.success {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    align-content: center;
+    align-items: center;
+    }
+
+.success:nth-child(1) {
+    order: 0;
+    flex: 0 1 auto;
+    align-self: center;
+    }
+
+.success:nth-child(2) {
+    order: 0;
+    flex: 1 1 auto;
+    align-self: center;
+    }
+
 input {
     border: 1px solid #ccc;
     padding: 8px;

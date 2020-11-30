@@ -19,6 +19,7 @@ const search = document.querySelector('input')
 const msg1 = document.querySelector('#fetch-success')
 const msg2 = document.querySelector('#fetch-error')
 const msg3 = document.querySelector('#fetch-alerts')
+const icon = document.querySelector('img')
 
 msg2.textContent = ''
 msg3.textContent = ''
@@ -37,6 +38,7 @@ weatherForm.addEventListener('submit', (e) => {
 const process = (location) => {
   msg2.textContent = msg3.textContent = ''
   msg1.textContent = 'Loading...'
+  icon.src=''
   return getWeather(location)
     .then((data) => {
       if (data.error) {
@@ -45,6 +47,7 @@ const process = (location) => {
         msg1.textContent = data.location
         msg2.textContent = data.forecast.msg
         msg3.textContent = data.forecast.alert
+        icon.src=data.forecast.icon
       }
     })
     .catch(data => {
