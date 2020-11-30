@@ -16,7 +16,7 @@
     "request": "^2.88.2"
   },
   "devDependencies": {
-    "env-cmd": "^9.0.3",
+    "env-cmd": "^10.1.0",
     "eslint": "^7.9.0",
     "eslint-config-standard": "^14.1.1",
     "eslint-plugin-import": "^2.22.0",
